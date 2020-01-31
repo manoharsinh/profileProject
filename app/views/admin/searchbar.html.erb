@@ -1,0 +1,22 @@
+<h1>Search</h1>
+ 
+<%= form_with scope: :normal_user, url: "/search",local: true do |form| %>
+
+
+
+ 
+ 
+  <p>
+    <%= form.label :term %><br>
+    <%= form.text_field :term %>
+  </p>
+  <p>
+    <%= form.submit('search') %>
+  </p>
+ 
+
+
+
+<% end %>
+ 
+ 

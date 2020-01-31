@@ -1,0 +1,31 @@
+<%= form_with scope: :normaluser, url: create1_path,local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :password %><br>
+    <%= form.text_area :password %>
+  </p>
+ <p>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %>
+  </p>
+ <p>
+    <%= form.label :accounttype %><br>
+    <%= form.text_area :accounttype %>
+  </p>
+ <p>
+    <%= form.label :phonenumber %><br>
+    <%= form.text_area :phonenumber %>
+  </p>
+ <p>
+    <%= form.label :status %><br>
+    <%= form.text_area :status %>
+  </p>
+ 
+  <p>
+    <%= form.submit('create') %>
+  </p>
+<% end %>
