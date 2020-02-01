@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 	get '/searchbar', to: 'admin#searchbar'
 	delete '/logout', to: 'admin_session#logout'
 	post '/create1', to: 'normal_user#create'
-	post '/edit', to: 'normal_user#edit'
+	#get '/editbar', to: 'normal_user#editbar'
+	get '/edit/:id', to: 'normal_user#editbar'
+	post '/create2', to: 'normal_user#update'
+	get '/normal_user/:id/show', to: 'normal_user#show'
+	get '/normal_user/:id/edit', to: 'normal_user#editbar'
 	resource :admins
-	#resource :normal_users
+	#resource :normalusers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

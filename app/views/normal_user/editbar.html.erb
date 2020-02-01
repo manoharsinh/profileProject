@@ -1,4 +1,5 @@
-<%= form_with scope: :normaluser, url: create1_path,local: true do |form| %>
+<%= form_with(model: @user1,url: create2_path ,local: true,method: "post" )do |form| %>
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>

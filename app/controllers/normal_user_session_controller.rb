@@ -2,18 +2,22 @@ class NormalUserSessionController < ApplicationController
 	def loginform
 	end
 	def login
-
-  		user = NormalUser.find_by(email: params[:session][:email].downcase)
+		#render json: {msg: params}
+  		user = Normaluser.find_by(email: params[:normal_user_session][:email].downcase)
 	  	if user!=nil
-	  		if user.authenticate(params[:session][:password])
+	  		if user.authenticate(params[:normal_user_session][:password])
 	  			session[:user_id]=user.id
-	  			redirect_to :controller => 'user', :action => 'editbar'
+	  			redirect_to controller: 'normal_user', action: 'show', id: user.id
+	  			#render json: {msg: session}
 	  		else
+	  			#render json: {msg: params}
 	  			flash[:alert] = "Not Authorized to access this page"
 	  		end
 
 	  	else
+	  		#render json: {msg: params}
 	  		flash[:alert] = "Not Authorized to access this page"
+	  	
 	  	end
   	end
   	def logout

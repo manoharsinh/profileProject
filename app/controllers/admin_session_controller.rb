@@ -5,7 +5,7 @@ class AdminSessionController < ApplicationController
 		#render json:{msg: params}
   		user = Admin.find_by(email: params[:admin_session][:email].downcase)
 	  	if user!=nil
-	  		if user.authenticate(params[:admin_session][:password])
+	  		if (user.authenticate(params[:admin_session][:password]) && user.status == "active")
 	  			session[:user_id]=user.id
 	  			redirect_to :controller => 'admin', :action => 'dday'
 	  		else
