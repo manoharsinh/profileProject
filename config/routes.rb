@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 	post '/create2', to: 'normal_user#update'
 	get '/normal_user/:id/show', to: 'normal_user#show'
 	get '/normal_user/:id/edit', to: 'normal_user#editbar'
+	require 'sidekiq/web'
+  	require 'sidekiq/cron/web'
+  	mount Sidekiq::Web => '/sidekiq'
 	resource :admins
 	#resource :normalusers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
