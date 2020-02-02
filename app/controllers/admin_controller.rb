@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
+	before_action :authorized, except: [:welcome]
 	def welcome
-
 	end
 	def searchbar
 	end

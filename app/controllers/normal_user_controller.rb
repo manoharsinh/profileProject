@@ -1,4 +1,5 @@
 class NormalUserController < ApplicationController
+	before_action :authorize, except: :new
 	def new
 	end
 	def show
@@ -35,8 +36,8 @@ class NormalUserController < ApplicationController
 		@user = Normaluser.find($cnt)
  		#render json: {msg: params}
     	if @user.update(update_params)
-    		render json: {msg: "hru"}
-      		#redirect_to @user
+    	
+      		redirect_to controller: 'normal_user', action: 'show', id: @user.id
     	else
       		render json:{msg: "could not update it"}
     	end
