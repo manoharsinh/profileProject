@@ -28,7 +28,7 @@ class NormalUserController < ApplicationController
 	def editbar
 		#render json: {msg: params}
 		$cnt=params[:id]
-		#@user1=Normaluser.find(params[:car])
+		@user1=Normaluser.find(params[:id])
 		#render json: {msg: @user1}
 	end
 	def update

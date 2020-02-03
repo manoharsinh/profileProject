@@ -6,9 +6,16 @@ class Normaluser < ApplicationRecord
 	include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 	validate :pid_check
+	settings index: {number_of_shards: 1 } do
+		mapping dynamic: false do
+		indexes :name, type: 'keyword', index: true
+		indexes :email, type: 'keyword', index: true
+		indexes :phonenumber, type: 'keyword', index: true
+		end
+	end
+	
 	private
 	def pid_check
-		puts "oh yes!"
 		bool=false
 		if(pid != nil)
 			ppid = Normaluser.find(pid).pid
